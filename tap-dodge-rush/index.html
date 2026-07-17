@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tap Dodge Rush — a fast, reflex-based arcade game. Free on Google Play. By SeraphLight Studios.">
+<title>Tap Dodge Rush — SeraphLight Studios</title>
+<meta property="og:title" content="Tap Dodge Rush">
+<meta property="og:description" content="Dodge the red blocks for as long as you can. One mistake and it's over. Free on Google Play.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    color-scheme: dark light;
+    --ink:#0b0f14; --panel:#131a22; --raised:#1a2530;
+    --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.05);
+    --fg:#dde5ea; --fg-dim:#93a1ab; --fg-faint:#63727d;
+    --accent:#6ee7f0; --accent-soft:rgba(110,231,240,.12); --accent-line:rgba(110,231,240,.35);
+    --danger:#f2545b; --live:#48c1ac;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --ink:#eef2f4; --panel:#fff; --raised:#f6f8f9;
+           --line:rgba(10,20,28,.12); --line-2:rgba(10,20,28,.06);
+           --fg:#101820; --fg-dim:#48565f; --fg-faint:#78868f;
+           --accent:#0e7c86; --accent-soft:rgba(14,124,134,.1); --accent-line:rgba(14,124,134,.35);
+           --live:#1c8f7d; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--ink); color:var(--fg); font-family:var(--sans);
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; padding:0 20px 80px;
+    background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+    background-size:38px 38px}
+  .col{max-width:760px; margin:0 auto}
+  a{color:var(--accent); text-decoration:none}
+
+  header{padding:44px 0 30px}
+  .back{font-family:var(--mono); font-size:12.5px; color:var(--accent)}
+  h1{font-size:clamp(32px,6.5vw,52px); line-height:1.02; letter-spacing:-.03em; margin:20px 0 0}
+  .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .badge{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    border:1px solid var(--line); color:var(--fg-faint); padding:3px 9px; border-radius:2px}
+  .badge.live{color:var(--live); border-color:var(--live)}
+  .badge.live::before{content:"● "}
+  .lede{color:var(--fg-dim); font-size:clamp(16px,2.3vw,18px); max-width:58ch; margin:20px 0 0}
+  .lede strong{color:var(--fg)}
+
+  .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+  .btn{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:13px;
+    padding:13px 20px; border-radius:3px; border:1px solid var(--accent-line);
+    color:var(--accent); background:var(--accent-soft); transition:background .15s}
+  .btn:hover{background:var(--accent); color:var(--ink)}
+  .btn.ghost{border-color:var(--line); color:var(--fg-dim); background:transparent}
+
+  section{padding:36px 0; border-top:1px solid var(--line)}
+  h2{font-size:21px; margin:0 0 12px; letter-spacing:-.01em}
+  p{color:var(--fg-dim); max-width:62ch}
+  strong{color:var(--fg)}
+  ul{color:var(--fg-dim); max-width:62ch; padding-left:20px}
+  li{margin:6px 0}
+  li b{color:var(--fg)}
+
+  .soon{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--fg-faint);
+    border-radius:4px; padding:18px 20px}
+  .soon p{margin:0}
+</style>
+</head>
+<body>
+<div class="col">
+
+  <header>
+    <a class="back" href="../">← SeraphLight Studios</a>
+    <h1>Tap Dodge Rush</h1>
+    <div class="badges">
+      <span class="badge live">Live on Google Play</span>
+      <span class="badge">Arcade</span>
+      <span class="badge">Rated Everyone</span>
+      <span class="badge">Free · contains ads</span>
+    </div>
+    <p class="lede">Control a white block. Dodge the red ones. The rules take three seconds to
+      learn — then it speeds up, and keeps speeding up, until you lose.
+      <strong>One mistake and it's over.</strong></p>
+    <div class="cta-row">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.seraphlight.tapdodgerush"
+         target="_blank" rel="noopener">▶ Get it on Google Play</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>What it is</h2>
+    <p>A hyper-casual arcade game with no menus in the way and nothing to unlock. It's built for the
+      thirty seconds you have in a queue, and for the evening where you keep saying one more try.</p>
+    <ul>
+      <li><b>One-tap controls</b> — the whole game is one input.</li>
+      <li><b>Endless</b> — difficulty ramps until it beats you. That's the design, not a shortcut.</li>
+      <li><b>Minimalist neon</b> — the play field and nothing else.</li>
+      <li><b>Light</b> — small download, smooth on old phones.</li>
+      <li><b>Local high score</b> — saved on your device, and nowhere else.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Privacy, briefly</h2>
+    <p>The game collects nothing about you. No accounts, no sign-in, no analytics. Your high score
+      lives on your device and never leaves it. Google serves the ads and its own policy governs
+      that — the full detail is in the <a href="../legal/privacy/">privacy policy</a>.</p>
+  </section>
+
+  <section>
+    <h2>Play in your browser</h2>
+    <div class="soon">
+      <p><strong>Coming soon.</strong> A browser version is in the works so you can try it without
+        installing anything. It'll be a re-implementation of the same game for the web — the Android
+        build draws on a native canvas, so the web one is its own code rather than the same binary.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

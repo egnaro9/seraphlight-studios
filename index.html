@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SeraphLight Studios — an independent game studio. Tap Dodge Rush is out now on Google Play. Hero Gem is in development.">
+<title>SeraphLight Studios</title>
+<meta property="og:title" content="SeraphLight Studios">
+<meta property="og:description" content="An independent game studio. Tap Dodge Rush is out now on Google Play; Hero Gem is in development.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    color-scheme: dark light;
+    --ink:#0b0f14; --panel:#131a22; --raised:#1a2530;
+    --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.05);
+    --fg:#dde5ea; --fg-dim:#93a1ab; --fg-faint:#63727d;
+    --accent:#6ee7f0; --accent-soft:rgba(110,231,240,.12); --accent-line:rgba(110,231,240,.35);
+    --gem:#f2a53c; --gem-soft:rgba(242,165,60,.12);
+    --live:#48c1ac;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --ink:#eef2f4; --panel:#fff; --raised:#f6f8f9;
+           --line:rgba(10,20,28,.12); --line-2:rgba(10,20,28,.06);
+           --fg:#101820; --fg-dim:#48565f; --fg-faint:#78868f;
+           --accent:#0e7c86; --accent-soft:rgba(14,124,134,.1); --accent-line:rgba(14,124,134,.35);
+           --gem:#b7761a; --gem-soft:rgba(183,118,26,.1); --live:#1c8f7d; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--ink); color:var(--fg); font-family:var(--sans);
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; padding:0 20px 80px;
+    background-image:radial-gradient(circle at 50% -10%, rgba(110,231,240,.07), transparent 55%),
+      linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+    background-size:auto, 38px 38px, 38px 38px}
+  .col{max-width:820px; margin:0 auto}
+  a{color:var(--accent); text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+
+  header{padding:84px 0 44px; text-align:center}
+  .mark{font-family:var(--mono); font-size:12px; letter-spacing:.4em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:20px}
+  h1{font-size:clamp(38px,8vw,66px); line-height:1; letter-spacing:-.03em; margin:0; font-weight:650}
+  .tag{color:var(--fg-dim); font-size:clamp(16px,2.4vw,19px); margin:20px auto 0; max-width:46ch}
+
+  section{padding:44px 0; border-top:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--fg-faint); margin-bottom:18px}
+
+  .game{background:var(--panel); border:1px solid var(--line); border-radius:6px; overflow:hidden}
+  .game-body{padding:26px 26px 24px}
+  .game h2{margin:0; font-size:clamp(24px,4vw,32px); letter-spacing:-.02em}
+  .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+  .badge{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    border:1px solid var(--line); color:var(--fg-faint); padding:3px 9px; border-radius:2px}
+  .badge.live{color:var(--live); border-color:var(--live)}
+  .badge.live::before{content:"● "; }
+  .badge.soon{color:var(--gem); border-color:var(--gem)}
+  .game p{color:var(--fg-dim); max-width:62ch; margin:16px 0 0}
+  .game strong{color:var(--fg)}
+  .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; align-items:center}
+  .btn{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:13px;
+    padding:12px 18px; border-radius:3px; border:1px solid var(--accent-line);
+    color:var(--accent); background:var(--accent-soft); transition:background .15s}
+  .btn:hover{background:var(--accent); color:var(--ink)}
+  .btn.ghost{border-color:var(--line); color:var(--fg-dim); background:transparent}
+  .btn.ghost:hover{color:var(--fg); border-color:var(--fg-dim); background:transparent}
+  .btn[aria-disabled="true"]{opacity:.5; pointer-events:none}
+
+  .feat{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px 26px; margin-top:24px}
+  .feat div{border-left:2px solid var(--accent-line); padding-left:13px}
+  .feat b{display:block; font-family:var(--mono); font-size:12px; color:var(--fg); margin-bottom:2px}
+  .feat span{font-size:13.5px; color:var(--fg-dim)}
+
+  .gem-card{border-left:3px solid var(--gem)}
+  .gem-card .badge.soon{background:var(--gem-soft)}
+
+  .about-h{font-size:clamp(22px,3.6vw,28px); margin:0 0 14px; letter-spacing:-.02em}
+  .about-p{color:var(--fg-dim); max-width:62ch; margin:0 0 14px}
+  .about-p strong{color:var(--fg)}
+  .about-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:16px 26px; margin-top:26px; padding-top:24px; border-top:1px solid var(--line)}
+  .about-grid div{border-left:2px solid var(--accent-line); padding-left:14px}
+  .about-grid b{display:block; font-family:var(--mono); font-size:12px; color:var(--fg);
+    margin-bottom:3px; letter-spacing:.03em}
+  .about-grid span{font-size:13.5px; color:var(--fg-dim)}
+
+  footer{padding:40px 0 0; border-top:1px solid var(--line); text-align:center;
+    font-family:var(--mono); font-size:12.5px; color:var(--fg-faint)}
+  .flinks{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:16px}
+</style>
+</head>
+<body>
+<div class="col">
+
+  <header>
+    <div class="mark">SeraphLight Studios</div>
+    <h1>Small games,<br>built properly.</h1>
+    <p class="tag">An independent studio. One game live, one in development, and a stubborn
+      preference for finishing things.</p>
+  </header>
+
+  <section>
+    <div class="eyebrow">Out now</div>
+    <div class="game">
+      <div class="game-body">
+        <h2>Tap Dodge Rush</h2>
+        <div class="badges">
+          <span class="badge live">Live on Google Play</span>
+          <span class="badge">Arcade</span>
+          <span class="badge">Rated Everyone</span>
+          <span class="badge">Free</span>
+        </div>
+        <p>A fast, reflex-based arcade game built around one idea: dodge the red blocks for as long
+          as you can. The rules take three seconds to learn and considerably longer to master —
+          <strong>one mistake and it's over</strong>. Made for thirty-second sessions and
+          just-one-more-try evenings.</p>
+        <div class="feat">
+          <div><b>One-tap controls</b><span>Nothing to learn, everything to master.</span></div>
+          <div><b>Endless</b><span>It gets faster until you lose. That's the whole design.</span></div>
+          <div><b>Minimal neon</b><span>No clutter, no menus in the way.</span></div>
+          <div><b>Runs anywhere</b><span>Small, light, and smooth on old hardware.</span></div>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.seraphlight.tapdodgerush"
+             target="_blank" rel="noopener">▶ Get it on Google Play</a>
+          <a class="btn ghost" href="tap-dodge-rush/">More about the game →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">In development</div>
+    <div class="game gem-card">
+      <div class="game-body">
+        <h2>Hero Gem</h2>
+        <div class="badges">
+          <span class="badge soon">In development</span>
+          <span class="badge">Match-3 RPG</span>
+          <span class="badge">Android</span>
+        </div>
+        <p>A match-3 with a spine: levels, progression, and a rules engine that takes its own
+          correctness seriously. Where Tap Dodge Rush is one idea done cleanly, this one is
+          <strong>the bigger swing</strong> — hand-drawn art, a real campaign, and a match engine
+          held to property-based invariants over thousands of generated boards.</p>
+        <p>It's being built slowly and on purpose. <strong>No launch date yet</strong>, and there
+          won't be one until it's ready.</p>
+        <div class="cta-row">
+          <a class="btn ghost" aria-disabled="true" href="#">Announcement coming</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">About</div>
+    <h2 class="about-h">SeraphLight Studios</h2>
+    <p class="about-p">SeraphLight Studios is an independent game studio based in Charleston, South
+      Carolina, founded and run by <strong>Erik Hill</strong>. We make small, focused games for
+      Android — the kind you can learn in seconds and keep coming back to.</p>
+    <p class="about-p">Everything here is built in-house: the code, the art, and the tooling that
+      tests it. <strong>Tap Dodge Rush</strong> shipped to Google Play in April 2026 after two weeks
+      of closed testing. <strong>Hero Gem</strong>, a match-3 RPG, is in development now.</p>
+    <p class="about-p">We keep the scope small on purpose. A finished game that works on an old
+      phone beats an ambitious one that never ships.</p>
+
+    <div class="about-grid">
+      <div>
+        <b>Contact</b>
+        <span><a href="mailto:erik.hill0987@gmail.com">erik.hill0987@gmail.com</a></span>
+      </div>
+      <div>
+        <b>Player support</b>
+        <span>Found a bug, or something feels wrong? Email us — it reaches the person who wrote it.</span>
+      </div>
+      <div>
+        <b>Location</b>
+        <span>Charleston, South Carolina, USA</span>
+      </div>
+      <div>
+        <b>Press &amp; business</b>
+        <span>Same address. We answer.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="flinks">
+      <a href="legal/privacy/">Privacy</a>
+      <a href="mailto:erik.hill0987@gmail.com">Contact</a>
+      <a href="https://egnaro9.github.io" target="_blank" rel="noopener">Engineering</a>
+    </div>
+    SeraphLight Studios · Charleston, SC · © 2026
+  </footer>
+
+</div>
+</body>
+</html>
