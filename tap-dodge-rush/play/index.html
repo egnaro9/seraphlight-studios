@@ -18,20 +18,24 @@
   }
   *{box-sizing:border-box}
   body{margin:0; background:var(--ink); color:var(--fg); font-family:var(--sans);
-       display:flex; flex-direction:column; align-items:center; min-height:100dvh}
+       display:flex; flex-direction:column; align-items:center}
+  /* Header and play field share exactly one screen, so the board is never half below the
+     fold on a phone. The prose sits after it, where scrolling to it is a choice. */
+  .above{display:flex; flex-direction:column; align-items:center;
+         height:100dvh; width:100%; min-height:0}
   a{color:var(--amber)}
   .back{position:fixed; top:12px; left:14px; z-index:99; font-family:var(--mono);
         font-size:13px; font-weight:600; color:var(--amber); background:rgba(14,19,22,.86);
         border:1px solid var(--amber-line); border-radius:4px; padding:6px 11px;
         text-decoration:none; backdrop-filter:blur(4px)}
-  header{max-width:60ch; padding:64px 20px 14px; text-align:center}
+  header{max-width:60ch; padding:56px 20px 10px; text-align:center; flex:0 0 auto}
   h1{font-family:var(--mono); font-size:26px; margin:0 0 10px}
   .lede{color:var(--fg-dim); font-size:15px; line-height:1.55; margin:0}
-  .stage{flex:1; display:flex; align-items:center; justify-content:center;
-         width:100%; padding:10px 12px 4px; min-height:52vh}
+  .stage{flex:1 1 0; min-height:0; display:flex; align-items:center; justify-content:center;
+         width:100%; padding:6px 12px 10px}
   canvas{background:#000; border:1px solid var(--line); border-radius:8px;
          touch-action:none; display:block}
-  footer{max-width:64ch; padding:12px 20px 40px; color:var(--fg-dim);
+  footer{max-width:64ch; padding:26px 20px 40px; color:var(--fg-dim);
          font-size:13.5px; line-height:1.6; text-align:center}
   code{font-family:var(--mono); font-size:.92em; color:var(--fg)}
   .hint{font-family:var(--mono); font-size:12px; color:var(--fg-dim); margin-top:8px}
@@ -40,6 +44,7 @@
 <body>
 <a class="back" href="../" aria-label="Back to the Tap Dodge Rush page">← Tap Dodge Rush</a>
 
+<div class="above">
 <header>
   <h1>Tap Dodge Rush</h1>
   <p class="lede">The rules running below are the <strong>same compiled engine</strong> as the
@@ -49,6 +54,7 @@
 </header>
 
 <div class="stage"><canvas id="game" width="1080" height="1920"></canvas></div>
+</div>
 
 <footer>
   <p><strong>What differs from the Play build.</strong> The shipped game sells a continue through
