@@ -3,7 +3,7 @@
 // Every rule below the drawing calls lives in tapdodge.js — the same GameEngine the
 // Android app runs, compiled by TeaVM. This file owns pixels, pointer events, sound
 // and the saved best score, exactly as GameView does on the phone.
-import * as engine from "./tapdodge.js";
+import * as engine from "./tapdodge.js?v=b1a0b9162fcd";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d", { alpha: false });
