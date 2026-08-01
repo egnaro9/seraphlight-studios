@@ -60,9 +60,6 @@
   li{margin:6px 0}
   li b{color:var(--fg)}
 
-  .soon{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--fg-faint);
-    border-radius:4px; padding:18px 20px}
-  .soon p{margin:0}
 </style>
 </head>
 <body>
@@ -108,11 +105,19 @@
 
   <section>
     <h2>Play in your browser</h2>
-    <div class="soon">
-      <p><strong>Coming soon.</strong> A browser version is in the works so you can try it without
-        installing anything. It'll be a re-implementation of the same game for the web — the Android
-        build draws on a native canvas, so the web one is its own code rather than the same binary.</p>
-    </div>
+    <p><a class="btn" href="play/">▶ Play it in your browser</a></p>
+    <p>No install, no account. It turned out better than planned: it is not a re-implementation.
+      The rules are one Java module with no Android on its classpath, compiled twice — by
+      <code>javac</code> for the app on your phone and by
+      <a href="https://teavm.org">TeaVM</a> for the page above. Same rulebook, two renderers.</p>
+    <p>A test drives a scripted game on the JVM and replays the identical run through the
+      browser build, then diffs the two: scores exactly, obstacle positions to a hundredth of a
+      pixel. It exists because the two had already drifted apart without anything noticing — the
+      <a href="https://github.com/egnaro9/tapdodge-engine">engine is open source</a> and the
+      story is in its README.</p>
+    <p>One difference on purpose: the phone version sells a continue through a rewarded ad. There
+      are no ads in the browser, and free continues would make a web score mean something other
+      than a phone score, so it has none.</p>
   </section>
 
 </div>
