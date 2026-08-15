@@ -3,7 +3,7 @@
 // Every rule below the drawing calls lives in tapdodge.js — the same GameEngine the
 // Android app runs, compiled by TeaVM. This file owns pixels, pointer events, sound
 // and the saved best score, exactly as GameView does on the phone.
-import * as engine from "./tapdodge.js?v=b1a0b9162fcd";
+import * as engine from "./tapdodge.js?v=087fc299d83f";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d", { alpha: false });
@@ -181,6 +181,12 @@ function begin() {
 function boot() {
   fit();
   engine.create(0, W, H);   // the only setBounds this page performs
+  // Deliberate test seam: the e2e suite drives REAL pointer events and uses the
+  // engine's own state() as its oracle. Read-only BY CONSTRUCTION — exposing the
+  // whole engine let a console visitor forge the best score and brick the page
+  // (cold-critic finding), and would let a lazy test cause state instead of
+  // observing it.
+  window.__tapdodge = Object.freeze({ state: () => engine.state() });
   musicButton();     // reflect the stored preference; do NOT touch audio before a gesture
   document.getElementById("mute").addEventListener("click", () => setMuted(!muted));
   engine.setBestScore(Number(localStorage.getItem(BEST_KEY) || 0));
