@@ -39,9 +39,14 @@
   a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
 
   header{padding:84px 0 44px; text-align:center}
-  .mark{font-family:var(--mono); font-size:12px; letter-spacing:.4em; text-transform:uppercase;
-    color:var(--accent); margin-bottom:20px}
-  h1{font-size:clamp(38px,8vw,66px); line-height:1; letter-spacing:-.03em; margin:0; font-weight:650}
+  /* The studio's NAME leads, the tagline supports it. It was the other way
+     round: a 12px mark under a 66px headline made the page look like it was
+     named "Small games, built properly." */
+  .mark{font-family:var(--mono); font-size:clamp(20px,4.4vw,34px); letter-spacing:.22em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:18px; font-weight:600;
+    text-shadow:0 0 32px var(--accent-soft)}
+  h1{font-size:clamp(24px,3.4vw,34px); line-height:1.15; letter-spacing:-.01em; margin:0;
+    font-weight:500; color:var(--fg-dim)}
   .tag{color:var(--fg-dim); font-size:clamp(16px,2.4vw,19px); margin:20px auto 0; max-width:46ch}
 
   section{padding:44px 0; border-top:1px solid var(--line)}
